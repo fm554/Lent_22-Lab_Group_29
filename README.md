@@ -9,5 +9,3 @@ to start the activity.
 
 Test shane
 double test
-
-
