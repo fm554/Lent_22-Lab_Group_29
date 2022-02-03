@@ -9,16 +9,16 @@ def run():
     # Build list of stations
     stations = build_station_list()
 
+    #generates full stations by distance list
+    station_distances = stations_by_distance(stations, (52.2053, 0.1218))
 
-
-    # Display data from 3 stations:
-    for station in stations:
-        if station.name in [
-                'Bourton Dickler', 'Surfleet Sluice', 'Gaw Bridge'
-        ]:
-            print(station.coord)
-
-
+    #indexes for first and last 10
+    first_10 = station_distances[:10]
+    last_10 = station_distances[-10:]
+    
+    #prints the output
+    print(first_10)
+    print(last_10)
 
 if __name__ == "__main__":
     print("*** Task 1B: CUED Part IA Flood Warning System ***")
