@@ -28,6 +28,23 @@ def stations_by_distance(stations, p):
     station_distance = sorted_by_key(station_distance, 2)
     return station_distance
 
+# Task 1C
+def stations_within_radius(stations, centre, r):
+    """returns all stations within a radius of a coordinate
+
+    Input arguments: stations(a list of Monitoring station objects), centre(lat, lon), r(distance in Km)
+   
+    Returns: list of tuples of form (name)"""
+    station_in_radius= []
+    for station in stations:
+        distance2= haversine(station.coord, centre)
+        if distance2<=r:
+         station_in_radius.append((station.name))
+    station_in_radius= sorted(station_in_radius)
+    return station_in_radius     
+
+
+
 # Task 1D
 def rivers_with_station(stations):
     """"returns a set with a list of non duplicate rivers with monitoring stations
@@ -60,6 +77,16 @@ def stations_by_river(stations):
         rivers_stations[river] = river_stations
     return rivers_stations
 
-
-
-
+#task 1E
+def rivers_by_station_number(stations, N):
+    """determines the N rivers with the greatest number of monitoring stations
+    
+    Input arguments: stations (a list of Monitoring Station object), N(number of rivers)
+    
+    Returns: list of tuples of form (river, number of stations)"""
+    rivers_station_number=[]
+    rivers = rivers_with_station(stations)
+    for station in stations:
+        for river in rivers:
+         rivers_station_number.append(river.name,(len(rivers_stations)))
+    return rivers_station_number
