@@ -34,7 +34,8 @@ def stations_within_radius(stations, centre, r):
 
     Input arguments: stations(a list of Monitoring station objects), centre(lat, lon), r(distance in Km)
    
-    Returns: list of tuples of form (name)"""
+    Returns: list of tuples of form (name)
+    """
     station_in_radius= []
     for station in stations:
         distance2= haversine(station.coord, centre)
@@ -84,9 +85,10 @@ def rivers_by_station_number(stations, N):
     Input arguments: stations (a list of Monitoring Station object), N(number of rivers)
     
     Returns: list of tuples of form (river, number of stations)"""
-
-
     
+    if N<1:
+          print("error: N must be greater than 0")
+
     rivers_by_station_number=[]
     rivers=[]
     for station in stations:
@@ -94,11 +96,17 @@ def rivers_by_station_number(stations, N):
     
     for river in rivers:
       rivers_by_station_number.append((river, (rivers.count(river)))) #iterating through rivers and counting the number of duplicate entries indicating each station
-      rivers_by_station_number_sorted=tuple(set(rivers_by_station_number)) #removing duplicates
-      rivers_by_station_number_sorted2=sorted_by_key(rivers_by_station_number_sorted, 1, reverse=True) #sorting by number of stations
-      if N<1:
-          print("error: N must be greater than 0")
-      N_stations=rivers_by_station_number_sorted2[:N]
     
-    
+    rivers_by_station_number=sorted_by_key(set(rivers_by_station_number), 1, reverse=True) #sorting by number of stations
+
+    N_stations=rivers_by_station_number[:N]
+
+    i = 0 
+    while True: #check for further values that are the same as the Nth
+        if rivers_by_station_number[N+i][1] == rivers_by_station_number[N][1]:
+            N_stations.append(rivers_by_station_number[N+i])
+        else:
+            break
+        i += 1
+
     return N_stations
