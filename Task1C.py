@@ -8,8 +8,10 @@ def run():
     # Build list of stations
     stations = build_station_list()
 
+    #generates stations within 10Km of the coordinates using function defined in geo
     stations_in_range=stations_within_radius(stations, (52.2053, 0.1218), 10)
 
+    #prints output
     print(stations_in_range)
    
 

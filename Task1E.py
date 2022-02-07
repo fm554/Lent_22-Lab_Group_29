@@ -8,7 +8,10 @@ def run():
     # Build list of stations
     stations = build_station_list()
 
+    #generates first nine rivers by the number of stations they have
     number_stations_river= rivers_by_station_number(stations, 9)
+   
+   #print output
     print(number_stations_river)
 
 if __name__ == "__main__":
