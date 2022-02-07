@@ -84,9 +84,21 @@ def rivers_by_station_number(stations, N):
     Input arguments: stations (a list of Monitoring Station object), N(number of rivers)
     
     Returns: list of tuples of form (river, number of stations)"""
-    rivers_station_number=[]
-    rivers = rivers_with_station(stations)
+
+
+    
+    rivers_by_station_number=[]
+    rivers=[]
     for station in stations:
-        for river in rivers:
-         rivers_station_number.append(river.name,(len(rivers_stations)))
-    return rivers_station_number
+        rivers.append(station.river)
+    
+    for river in rivers:
+      rivers_by_station_number.append((river, (rivers.count(river)))) #iterating through rivers and counting the number of duplicate entries indicating each station
+      rivers_by_station_number_sorted=tuple(set(rivers_by_station_number)) #removing duplicates
+      rivers_by_station_number_sorted2=sorted_by_key(rivers_by_station_number_sorted, 1, reverse=True) #sorting by number of stations
+      if N<1:
+          print("error: N must be greater than 0")
+      N_stations=rivers_by_station_number_sorted2[:N]
+    
+    
+    return N_stations
