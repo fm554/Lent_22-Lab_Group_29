@@ -7,9 +7,9 @@ def test_stations_by_distance():
     # Build list of stations
     stations = build_station_list()
     #generates full stations by distance list
-    station_distances = sorted(stations_by_distance(stations, (52.2053, 0.1218)))
+    station_distances = stations_by_distance(stations, (52.2053, 0.1218))
 
-    assert round(station_distances[0][1], 2) == 0.84
+    assert round(station_distances[0][2], 2) == 0.84
 
 #1C test
 
