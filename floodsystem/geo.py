@@ -96,6 +96,11 @@ def rivers_by_station_number(stations, N):
     
     for river in rivers:
       rivers_by_station_number.append((river, (rivers.count(river)))) #iterating through rivers and counting the number of duplicate entries indicating each station
+      rivers_by_station_number_sorted=tuple(set(rivers_by_station_number)) #removing duplicates
+      rivers_by_station_number_sorted2=sorted_by_key(rivers_by_station_number_sorted, 1, reverse=True) #sorting by number of stations
+      if N<1:
+          print("error: N must be greater than 0")
+      N_stations=rivers_by_station_number_sorted2[:N]
     
     rivers_by_station_number=sorted_by_key(set(rivers_by_station_number), 1, reverse=True) #sorting by number of stations
 
