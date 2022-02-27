@@ -4,6 +4,7 @@ from floodsystem.stationdata import build_station_list, update_water_levels
 from floodsystem.datafetcher import fetch_measure_levels
 import datetime
 import numpy
+import matplotlib
 
 
 
