@@ -59,7 +59,7 @@ class MonitoringStation:
 
         else:
             range = self.typical_range[1] - self.typical_range[0]
-            return (self.latest_level - self.typical_range[0])/range
+            return float((self.latest_level - self.typical_range[0])/range)
 
 def inconsistent_typical_range_stations(stations):
     """"returns a list of all the stations with inconsistent typical range values
