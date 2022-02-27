@@ -1,12 +1,10 @@
 from floodsystem.stationdata import build_station_list
 from floodsystem.stationdata import build_station_list, update_water_levels
-from floodsystem.plot import plot_water_level_with_fit
-from floodsystem.flood import stations_highest_rel_level
 from floodsystem.datafetcher import fetch_measure_levels
 import datetime
 import numpy as np
 import matplotlib as plt
-from floodsystem.station import find_station_from_name
+
 
 def trend_up(station):
         dt = 1
@@ -77,20 +75,13 @@ def run():
         elif risk == 3:
             severe_towns.append(town)
 
-    print ("Severe Risk Towns Include:", severe_towns[:5])
-    print ("High Risk Towns Include:", high_towns[:5])
-    print ("Moderate Risk Towns Include:", moderate_towns[:5])
-    print ("Low Risk Towns Include:", low_towns[:5])
+    print ("Severe Risk Towns Include:", severe_towns[:10])
+    print ("High Risk Towns Include:", high_towns[:10])
+    print ("Moderate Risk Towns Include:", moderate_towns[:10])
+    print ("Low Risk Towns Include:", low_towns[:10])
 
 
             
-
-
-    
-
-
-
-    # sort for stations outside relative level
 
 
 
