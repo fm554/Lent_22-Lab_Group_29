@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib as plt
+from matplotlib.dates import date2num
 
 def polyfit(dates, levels, p):
     """return a tuple of (i) the polynomial object and (ii) any shift of the time (date) axis
