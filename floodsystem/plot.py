@@ -6,7 +6,7 @@ import numpy as np
 def plot_water_levels(station, dates, levels):
     """returns a plot of the water level data against time for a station
     
-    Input arguments: stations(a list of Monitoring station objects), dates, water levels
+    Input arguments: stations(a list of Monitoring station objects), dates, levels (a list of floats)
 
     Returns: plot of water level against time"""
 
@@ -27,15 +27,15 @@ def plot_water_levels(station, dates, levels):
 def plot_water_level_with_fit(station, dates, levels, p):
     """returns a plot of the water level data and the best-fit polynomial. 
     
-    """
+    Input arguments: station (a list of Monitoring station objects), dates, levels(list of floats), p (integer)"""
 
     poly, shift = polyfit(dates, levels, p)
 
     # Plot
     x = matplotlib.dates.date2num(dates)
-    x1 = np.linspace(x[0], x[-1], 30)
+    x1 = np.linspace(shift, x[-1], 30)
     plt.plot(x, levels)
-    plt.plot(x1, poly(x1 - x[0]))
+    plt.plot(x1, poly(x1 - shift))
     plt.axhline(y = station.typical_range[0], color='r')
     plt.axhline(y = station.typical_range[1], color='r')
 
