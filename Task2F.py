@@ -1,17 +1,13 @@
 from floodsystem.stationdata import build_station_list
 from floodsystem.stationdata import build_station_list, update_water_levels
-from floodsystem.plot import plot_water_levels, plot_water_level_with_fit
+from floodsystem.plot import plot_water_level_with_fit
 from floodsystem.flood import stations_highest_rel_level
 from floodsystem.datafetcher import fetch_measure_levels
 import datetime
-from Task2E import find_station_from_name
+from floodsystem.station import find_station_from_name
 
 
 def run():
-    """Requirements for Task 1F"""
-
-    # Build list of stations
-    stations = build_station_list()
     """Requirements for Task 2F"""
 
     # Build list of stations
@@ -30,9 +26,6 @@ def run():
             print("no data at", station_name)
         else:
             plot_water_level_with_fit(station, dates, levels, 4)
-
-
-
 
 
 if __name__ == "__main__":

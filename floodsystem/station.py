@@ -76,3 +76,9 @@ def inconsistent_typical_range_stations(stations):
     return inconsistent_stations
 
     
+def find_station_from_name(station_name, stations):
+    for station in stations:
+        if station.name == station_name:
+            return station
+    print("Name not Found")
+    return

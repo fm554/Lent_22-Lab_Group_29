@@ -1,6 +1,10 @@
 
 def run():
     """Requirements for Task 2G"""
+    # sort for stations outside relative level
+
+    
+    
 
 
 
