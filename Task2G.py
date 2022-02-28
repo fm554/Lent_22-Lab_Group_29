@@ -27,14 +27,19 @@ def run():
 
     stations = build_station_list()
     update_water_levels(stations)
+
+    # generate variables
     towns = set()
     severe_towns = []
     high_towns = []
     moderate_towns = []
     low_towns = []
+
+    # generate town list
     for station in stations:
         towns.add(station.town)
     
+    # sort through towns and check for risk factors
     towns2 = list(towns)[:100]
     for town in towns2:
         count = 0
@@ -64,8 +69,10 @@ def run():
         
         if count == 0:
             count += 1
+        # calculate town risk
         risk = round(score/count, 0)
         print(risk, town)
+        # add town to relevant list
         if risk == 0:
             low_towns.append(town)
         elif risk == 1:
