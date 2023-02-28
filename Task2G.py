@@ -87,6 +87,9 @@ def run():
     print ("Moderate Risk Towns Include:", moderate_towns[:10])
     print ("Low Risk Towns Include:", low_towns[:10])
 
+if __name__ == "__main__":
+    print("*** Task 2G CUED Part IA Flood Warning System ***")
+    run()
 
             
 
