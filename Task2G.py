@@ -70,7 +70,7 @@ def run():
         if count == 0:
             count += 1
         # calculate town risk
-        risk = round(score/count, 0)
+        risk = round(score/count)
         print(risk, town)
         # add town to relevant list
         if risk == 0:
